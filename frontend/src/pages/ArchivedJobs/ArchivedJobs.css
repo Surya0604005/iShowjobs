@@ -1,0 +1,42 @@
+.archived-page {
+  padding: 40px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+th {
+  background: #f3f4f6;
+}
+
+th,
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+td button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.restore {
+  color: #16a34a;
+}
+
+.delete {
+  color: #dc2626;
+}

@@ -1,0 +1,16 @@
+.latest-jobs {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.latest-jobs h2 {
+  margin-bottom: 30px;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}

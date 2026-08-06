@@ -1,0 +1,87 @@
+.footer {
+  background: #111827;
+  color: white;
+  margin-top: 70px;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.footer-content h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-description {
+  color: #d1d5db;
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 30px auto;
+  max-width: 500px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 35px 20px;
+  }
+
+  .footer-content h2 {
+    font-size: 26px;
+  }
+
+  .footer-description {
+    font-size: 15px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 30px 16px;
+  }
+
+  .footer-content h2 {
+    font-size: 22px;
+  }
+
+  .footer-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .copyright {
+    font-size: 13px;
+  }
+}
+
+.footer-link {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}

@@ -1,0 +1,104 @@
+.search-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 18px;
+
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 20px;
+
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Search & Select Fields */
+
+.search-field,
+.select-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  transition: 0.3s;
+}
+
+.search-field:focus-within,
+.select-field:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.search-field input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+}
+
+.select-field select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+  .search-wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 18px;
+    margin: 35px 20px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .search-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 25px 15px;
+    padding: 18px;
+  }
+
+  .search-field,
+  .select-field {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .search-field input,
+  .select-field select {
+    font-size: 15px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+  .search-wrapper {
+    margin: 20px 12px;
+    padding: 15px;
+  }
+
+  .search-field,
+  .select-field {
+    padding: 12px;
+  }
+
+  .search-field input,
+  .select-field select {
+    font-size: 14px;
+  }
+}

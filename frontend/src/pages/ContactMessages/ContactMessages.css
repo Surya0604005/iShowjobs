@@ -1,0 +1,113 @@
+.messages-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
+
+.messages-page h1 {
+  margin-bottom: 25px;
+  font-size: 34px;
+  color: #111827;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.messages-page table {
+  width: 100%;
+  min-width: 900px;
+
+  border-collapse: collapse;
+
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.messages-page th {
+  background: #2563eb;
+  color: white;
+
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.messages-page td {
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+.messages-page tr:hover {
+  background: #f9fafb;
+}
+
+.messages-page td:last-child {
+  max-width: 350px;
+  word-break: break-word;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+  .messages-page {
+    padding: 18px;
+  }
+
+  .messages-page h1 {
+    font-size: 30px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .messages-page {
+    padding: 15px;
+  }
+
+  .messages-page h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .messages-page table {
+    min-width: 750px;
+  }
+
+  .messages-page th,
+  .messages-page td {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+  .messages-page {
+    padding: 12px;
+  }
+
+  .messages-page h1 {
+    font-size: 22px;
+  }
+
+  .messages-page table {
+    min-width: 700px;
+  }
+
+  .messages-page th,
+  .messages-page td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
