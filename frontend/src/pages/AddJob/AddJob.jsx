@@ -43,13 +43,9 @@ function AddJob() {
         const formData = new FormData();
         formData.append("file", image);
 
-        const uploadRes = await api.post("/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const uploadRes = await api.post("/upload", formData);
 
-        imageUrl = `http://127.0.0.1:8000${uploadRes.data.image_url}`;
+        imageUrl = uploadRes.data.image_url;
       }
 
       // Add job
