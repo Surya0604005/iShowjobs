@@ -62,6 +62,6 @@ async def upload_image(file: UploadFile = File(...)):
 
     return {
         "filename": filename,
-        "image_url": f"/uploads/{filename}"
+        "image_url": f"https://ishowjobs-backend.onrender.com/uploads/{filename}"
     }
 app.include_router(contact_router)
