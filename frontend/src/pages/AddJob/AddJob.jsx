@@ -45,6 +45,8 @@ function AddJob() {
 
         const uploadRes = await api.post("/upload", formData);
 
+        console.log("UPLOAD RESPONSE:", uploadRes.data);
+
         imageUrl = uploadRes.data.image_url;
       }
 
