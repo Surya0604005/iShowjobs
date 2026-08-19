@@ -73,58 +73,45 @@ def home():
 @app.post("/upload")
 async def upload_image(file: UploadFile = File(...)):
 
-    # Check that a file was actually selected
     if not file:
         raise HTTPException(
             status_code=400,
             detail="No image uploaded"
         )
 
-    # Read image bytes
     image_data = await file.read()
 
-    # Check empty file
     if not image_data:
         raise HTTPException(
             status_code=400,
             detail="Uploaded image is empty"
         )
 
-    # Generate unique filename
     filename = f"{uuid4()}_{file.filename}"
 
-    # Create database session
     db: Session = SessionLocal()
 
     try:
-
-        # Create database record
         new_image = models.JobImage(
             filename=filename,
             content_type=file.content_type or "application/octet-stream",
             image_data=image_data
         )
 
-        # Save image to Aiven MySQL
         db.add(new_image)
         db.commit()
         db.refresh(new_image)
 
-        # URL used by frontend to display image
-        image_url = (
-            f"https://ishowjobs-backend.onrender.com"
-            f"/uploads/{new_image.id}"
-        )
-
         return {
             "id": new_image.id,
             "filename": filename,
-            "image_url": image_url
+            "image_url": f"https://ishowjobs-backend.onrender.com/uploads/{new_image.id}"
         }
 
     except Exception as e:
-
         db.rollback()
+
+        print("IMAGE UPLOAD ERROR:", str(e))
 
         raise HTTPException(
             status_code=500,
