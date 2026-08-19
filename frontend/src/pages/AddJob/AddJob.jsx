@@ -4,6 +4,7 @@ import api from "../../api/api";
 import "./AddJob.css";
 import AdminNav from "../../components/AdminNav/AdminNav";
 import { toast } from "sonner";
+
 function AddJob() {
   const navigate = useNavigate();
 
@@ -38,21 +39,30 @@ function AddJob() {
     try {
       let imageUrl = "";
 
-      // Upload image first
+      // ==========================================
+      // 1. Upload image to Aiven MySQL
+      // ==========================================
       if (image) {
         const formData = new FormData();
         formData.append("file", image);
 
-        const uploadRes = await api.post("/upload", formData);
+        const uploadRes = await api.post("/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
 
-        console.log("UPLOAD RESPONSE:", uploadRes.data);
+        console.log("IMAGE UPLOAD RESPONSE:", uploadRes.data);
 
         imageUrl = uploadRes.data.image_url;
       }
 
-      // Add job
-      await api.post("/jobs/", {
+      // ==========================================
+      // 2. Create job
+      // ==========================================
+      const jobRes = await api.post("/jobs/", {
         ...form,
+
         location: form.location === "Other" ? customLocation : form.location,
 
         experience:
@@ -61,11 +71,15 @@ function AddJob() {
         thumbnail: imageUrl,
       });
 
+      console.log("JOB CREATED:", jobRes.data);
+
       toast.success("Job Added Successfully!");
 
       navigate("/admin/manage-jobs");
     } catch (err) {
-      console.error(err);
+      console.error("ADD JOB ERROR:", err);
+      console.error("SERVER RESPONSE:", err.response?.data);
+
       toast.error("Failed to add job.");
     }
   };
@@ -73,6 +87,7 @@ function AddJob() {
   return (
     <div className="add-job-page">
       <AdminNav />
+
       <form className="add-job-form" onSubmit={handleSubmit}>
         <h1>Add Job</h1>
 
@@ -82,12 +97,14 @@ function AddJob() {
           onChange={handleChange}
           required
         />
+
         <input
           name="title"
           placeholder="Job Title"
           onChange={handleChange}
           required
         />
+
         <select
           name="location"
           value={form.location}
@@ -105,6 +122,7 @@ function AddJob() {
           <option value="Remote">Remote</option>
           <option value="Other">Other</option>
         </select>
+
         {form.location === "Other" && (
           <input
             type="text"
@@ -129,6 +147,7 @@ function AddJob() {
           <option value="5+ Years">5+ Years</option>
           <option value="Other">Other</option>
         </select>
+
         {form.experience === "Other" && (
           <input
             type="text"
@@ -138,6 +157,7 @@ function AddJob() {
             required
           />
         )}
+
         <input
           type="file"
           accept="image/*"
@@ -151,6 +171,7 @@ function AddJob() {
           onChange={handleChange}
           required
         />
+
         <input
           name="apply"
           placeholder="Apply Link"

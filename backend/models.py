@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, func
+from sqlalchemy import Column, Integer, String, Text, DateTime, func, LargeBinary
 from database import Base
 
 
@@ -40,3 +40,12 @@ class ContactMessage(Base):
     subject = Column(String(255), nullable=False)
     message = Column(Text, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
+
+
+class JobImage(Base):
+    __tablename__ = "job_images"
+
+    id = Column(Integer, primary_key=True, index=True)
+    filename = Column(String(255), nullable=False)
+    content_type = Column(String(100), nullable=False)
+    image_data = Column(LargeBinary, nullable=False)
