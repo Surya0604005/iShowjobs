@@ -64,7 +64,7 @@ function EditJob() {
           },
         });
 
-        imageUrl = `http://127.0.0.1:8000${uploadRes.data.image_url}`;
+        imageUrl = uploadRes.data.image_url;
       }
 
       await api.put(`/jobs/${id}`, {
