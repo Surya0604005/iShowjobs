@@ -1,4 +1,4 @@
-import { Briefcase, Home, Target } from "lucide-react";
+import { Briefcase, Home, Target, ShieldCheck, FileText } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaYoutube } from "react-icons/fa";
 import "./About.css";
@@ -73,6 +73,39 @@ function About() {
           To make job searching simple, reliable, and accessible by combining
           verified hiring updates with detailed YouTube guidance.
         </p>
+      </section>
+
+      {/* Legal & Policies */}
+      <section className="legal-section">
+        <h2>Legal & Policies</h2>
+
+        <p>
+          Learn more about how iShowJobs operates and the terms that apply when
+          using our platform.
+        </p>
+
+        <div className="legal-links">
+          <Link to="/privacy-policy" className="legal-card">
+            <ShieldCheck size={32} />
+            <div>
+              <h3>Privacy Policy</h3>
+              <p>
+                Learn how iShowJobs handles information and protects user
+                privacy.
+              </p>
+            </div>
+          </Link>
+
+          <Link to="/terms-and-conditions" className="legal-card">
+            <FileText size={32} />
+            <div>
+              <h3>Terms & Conditions</h3>
+              <p>
+                Read the terms and conditions for using the iShowJobs platform.
+              </p>
+            </div>
+          </Link>
+        </div>
       </section>
 
       <section className="about-cta">

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -18,6 +18,8 @@ import EditJob from "./pages/EditJob/EditJob";
 import { Toaster } from "sonner";
 import ContactMessages from "./pages/ContactMessages/ContactMessages";
 import NotFound from "./pages/NotFound/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import Terms from "./pages/Terms/Terms";
 function App() {
   return (
     <>
@@ -85,6 +87,8 @@ function App() {
         />
 
         <Route path="*" element={<NotFound />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<Terms />} />
       </Routes>
 
       <Footer />
